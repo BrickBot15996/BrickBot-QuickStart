@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.common.wrappers;
+package org.firstinspires.ftc.teamcode.common.hardware.devicewrappers;
 
 import androidx.annotation.NonNull;
 
