@@ -1,36 +1,23 @@
 package org.firstinspires.ftc.teamcode.common.commandbase;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class InstantCommand implements Command
 {
-	private List<Command> commands;
+	private Function function;
 
-	public InstantCommand (List<Command> commands)
+	public InstantCommand (Function function)
 	{
-		this.commands = new ArrayList<>(commands);
-	}
-
-	public InstantCommand (Command... commands)
-	{
-		this(Arrays.asList(commands));
+		this.function = function;
 	}
 
 	@Override
-	public void run() {
-		if (commands.isEmpty())
-			return;
-
-		for (Command command : commands) {
-			command.run();
-			commands.remove(command);
-		}
+	public void run()
+	{
+		function.run();
 	}
 
 	@Override
-	public boolean isFinished() {
-		return commands.isEmpty();
+	public boolean isFinished()
+	{
+		return true;
 	}
 }

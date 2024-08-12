@@ -13,7 +13,7 @@ public class CommandScheduler
 		this.commands = new ArrayList<>();
 	}
 
-	public CommandScheduler getInstance()
+	public static CommandScheduler getInstance()
 	{
 		if (scheduler == null) {
 			scheduler = new CommandScheduler();
