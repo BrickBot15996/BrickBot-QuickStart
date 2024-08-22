@@ -16,24 +16,51 @@ public class BetterServo implements Servo
 	private double lastPosition = 0.0;
 	private double writeDelta = 0.03;
 
+	private String servoName;
 
-	public BetterServo(@NonNull HardwareMap hwMap, String servoName) { servo = hwMap.get(Servo.class, servoName); }
+	public BetterServo(String servoName)
+	{
+		this.servoName = servoName;
+	}
 
-	public void setWriteDelta(double newWriteDelta) { writeDelta = newWriteDelta; }
+	public void init(HardwareMap hardwareMap)
+	{
+		servo = hardwareMap.get(Servo.class, servoName);
+	}
 
-	public void setReversed(boolean isReversed)  { this.isReversed = isReversed; }
+	public void setWriteDelta(double newWriteDelta)
+	{
+		writeDelta = newWriteDelta;
+	}
+
+	public void setReversed(boolean isReversed)
+	{
+		this.isReversed = isReversed;
+	}
 
 	@Override
-	public ServoController getController() { return null; }
+	public ServoController getController()
+	{
+		return null;
+	}
 
 	@Override
-	public int getPortNumber() { return 0; }
+	public int getPortNumber()
+	{
+		return 0;
+	}
 
 	@Override
-	public void setDirection(Direction direction) {}
+	public void setDirection(Direction direction)
+	{
+
+	}
 
 	@Override
-	public Direction getDirection() { return null; }
+	public Direction getDirection()
+	{
+		return null;
+	}
 
 	@Override
 	public void setPosition(double newPosition)
@@ -47,26 +74,50 @@ public class BetterServo implements Servo
 	}
 
 	@Override
-	public double getPosition() { return lastPosition; }
+	public double getPosition()
+	{
+		return lastPosition;
+	}
 
 	@Override
-	public void scaleRange(double min, double max) {}
+	public void scaleRange(double min, double max)
+	{
+
+	}
 
 	@Override
-	public Manufacturer getManufacturer() { return null; }
+	public Manufacturer getManufacturer()
+	{
+		return null;
+	}
 
 	@Override
-	public String getDeviceName() { return "BrickBot"; }
+	public String getDeviceName()
+	{
+		return "BrickBot";
+	}
 
 	@Override
-	public String getConnectionInfo() { return "BrickBot"; }
+	public String getConnectionInfo()
+	{
+		return "BrickBot";
+	}
 
 	@Override
-	public int getVersion() { return 15996; }
+	public int getVersion()
+	{
+		return 15996;
+	}
 
 	@Override
-	public void resetDeviceConfigurationForOpMode() {}
+	public void resetDeviceConfigurationForOpMode()
+	{
+
+	}
 
 	@Override
-	public void close() {}
+	public void close()
+	{
+
+	}
 }

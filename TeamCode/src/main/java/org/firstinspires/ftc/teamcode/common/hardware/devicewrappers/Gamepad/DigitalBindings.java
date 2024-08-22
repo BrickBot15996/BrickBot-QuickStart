@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad;
 
-public enum Bindings
+public enum DigitalBindings
 {
     touchpad_finger_1,
     touchpad_finger_2,

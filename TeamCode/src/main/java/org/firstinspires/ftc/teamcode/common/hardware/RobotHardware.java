@@ -1,13 +1,18 @@
 package org.firstinspires.ftc.teamcode.common.hardware;
 
 import com.qualcomm.hardware.lynx.LynxModule;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.BetterMotor;
+import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.BetterGamepad;
+import org.firstinspires.ftc.teamcode.common.hardware.subsystems.MecanumDrive;
 
 import java.util.HashMap;
 
 public class RobotHardware
 {
-	RobotHardware robotHardware;
+	public static RobotHardware robotHardware;
 
 	double voltage = 12.0;
 
@@ -19,11 +24,18 @@ public class RobotHardware
 	LynxModule controlHub;
 	LynxModule expansionHub;
 
+	BetterMotor frontLeft = new BetterMotor("frontLeft");
+	BetterMotor rearLeft = new BetterMotor("rearLeft");
+	BetterMotor rearRight = new BetterMotor("rearRight");
+	BetterMotor frontRight = new BetterMotor("frontRight");
+
 
 	// Declare Subsystems
+	MecanumDrive drivetrain = new MecanumDrive(frontLeft, rearLeft, rearRight, frontRight)
+								.setHeadingPID(0.0, 0.0, 0.0)
+								.setDrivingType(MecanumDrive.DrivingType.ROBOT_CENTRIC);
 
-
-	//Create the init method
+	// Create the init method
 
 	public void init(HardwareMap hwMap) {
 		controlHub = hwMap.get(LynxModule.class, "Control Hub");
@@ -33,7 +45,7 @@ public class RobotHardware
 		expansionHub.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
 	}
 
-	public int intSupplier(Sensors.UsedSensors sensor)
+	/* public int intSupplier(Sensors.UsedSensors sensor)
 	{
 		Object position = encoderValues.getOrDefault(sensor, 0);
 		if (position instanceof Integer) {
@@ -55,7 +67,7 @@ public class RobotHardware
 		} else {
 			throw new ClassCastException();
 		}
-	}
+	} */
 
 	public void clearCache()
 	{
@@ -63,7 +75,7 @@ public class RobotHardware
 		expansionHub.clearBulkCache();
 	}
 
-	public RobotHardware getInstance()
+	public static RobotHardware getInstance()
 	{
 		if (robotHardware == null)
 			robotHardware = new RobotHardware();

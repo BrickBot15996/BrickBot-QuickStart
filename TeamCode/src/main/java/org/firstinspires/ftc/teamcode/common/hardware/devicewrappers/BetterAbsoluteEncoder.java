@@ -15,9 +15,16 @@ public class BetterAbsoluteEncoder implements HardwareDevice
 	private double offset = 0.0;
 	private double encoderRange = 3.3;
 
-	public BetterAbsoluteEncoder(@NonNull HardwareMap hwMap, String absoluteEncoderName)
+	private String absoluteEncoderName;
+
+	public BetterAbsoluteEncoder(String absoluteEncoderName)
 	{
-		absoluteEncoder = hwMap.get(AnalogInput.class, absoluteEncoderName);
+		this.absoluteEncoderName = absoluteEncoderName;
+	}
+
+	public void init(HardwareMap hardwareMap)
+	{
+		absoluteEncoder = hardwareMap.get(AnalogInput.class, absoluteEncoderName);
 	}
 
 	public void setInverted(boolean inverted)

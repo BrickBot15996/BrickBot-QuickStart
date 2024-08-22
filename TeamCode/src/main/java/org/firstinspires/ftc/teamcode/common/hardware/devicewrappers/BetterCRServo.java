@@ -14,10 +14,17 @@ public class BetterCRServo implements CRServo
 	private double lastPower = 0.0;
 	private double writeDelta = 0.05;
 
-	public BetterCRServo(@NonNull HardwareMap hwMap, String crServoName)
+	private String crServoName;
+
+	public BetterCRServo(String crServoName)
 	{
-		crservo = hwMap.get(CRServo.class, crServoName);
+		this.crServoName = crServoName;
 		crservo.setPower(0.0);
+	}
+
+	public void init(HardwareMap hardwareMap)
+	{
+		crservo = hardwareMap.get(CRServo.class, crServoName);
 	}
 
 	public void setWriteDelta (double newWriteDelta)

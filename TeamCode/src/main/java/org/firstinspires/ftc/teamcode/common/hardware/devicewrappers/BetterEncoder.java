@@ -10,9 +10,16 @@ public class BetterEncoder implements HardwareDevice
 {
 	private DcMotor encoder;
 
-	public BetterEncoder(@NonNull HardwareMap hwMap, String encoderName)
+	private String encoderName;
+
+	public BetterEncoder(String encoderName)
 	{
-		encoder = hwMap.get(DcMotor.class, encoderName);
+		this.encoderName = encoderName;
+	}
+
+	public void init(HardwareMap hardwareMap)
+	{
+		encoder = hardwareMap.get(DcMotor.class, encoderName);
 	}
 
 	public int getCurrentPosition()

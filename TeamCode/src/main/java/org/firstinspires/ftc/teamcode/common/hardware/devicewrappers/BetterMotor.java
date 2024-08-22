@@ -17,10 +17,17 @@ public class BetterMotor implements DcMotor
 	private double writeDelta = 0.05;
 	private double lastPower = 0.0;
 
-	public BetterMotor(@NonNull HardwareMap hwMap, String motorName)
+	private String motorName;
+
+	public BetterMotor(String motorName)
 	{
-		motor = hwMap.get(DcMotorEx.class, motorName);
+		this.motorName = motorName;
 		motor.setPower(0.0);
+	}
+
+	public void init(HardwareMap hardwareMap)
+	{
+		motor = hardwareMap.get(DcMotorEx.class, motorName);
 	}
 
 	public void setWriteDelta (double newWriteDelta)
