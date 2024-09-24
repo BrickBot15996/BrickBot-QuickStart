@@ -1,73 +1,84 @@
 package org.firstinspires.ftc.teamcode.common.hardware;
 
 import com.qualcomm.hardware.lynx.LynxModule;
-import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.BetterMotor;
 import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.BetterGamepad;
 import org.firstinspires.ftc.teamcode.common.hardware.subsystems.MecanumDrive;
+import org.firstinspires.ftc.teamcode.common.hardware.subsystems.Subsystem;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class RobotHardware
 {
 	public static RobotHardware robotHardware;
 
-	double voltage = 12.0;
-
-	public HashMap<Sensors.UsedSensors, Object> encoderValues;
+	public double voltage = 12.0;
 
 	public RobotHardware() {}
 
-	// Declare Devices and ActuatorGroups
+	// Declare Devices
 	LynxModule controlHub;
 	LynxModule expansionHub;
 
-	BetterMotor frontLeft = new BetterMotor("frontLeft");
-	BetterMotor rearLeft = new BetterMotor("rearLeft");
-	BetterMotor rearRight = new BetterMotor("rearRight");
-	BetterMotor frontRight = new BetterMotor("frontRight");
+	public BetterGamepad gamepad1;
+	public BetterGamepad gamepad2;
 
+	public BetterMotor frontLeft = new BetterMotor("frontLeft");
+	public BetterMotor rearLeft = new BetterMotor("rearLeft");
+	public BetterMotor rearRight = new BetterMotor("rearRight");
+	public BetterMotor frontRight = new BetterMotor("frontRight");
+
+	public IMU imu;
 
 	// Declare Subsystems
-	MecanumDrive drivetrain = new MecanumDrive(frontLeft, rearLeft, rearRight, frontRight)
-								.setHeadingPID(0.0, 0.0, 0.0)
-								.setDrivingType(MecanumDrive.DrivingType.ROBOT_CENTRIC);
+	ArrayList<Subsystem> subsystems = new ArrayList<>();
 
-	// Create the init method
+	MecanumDrive drivetrain = new MecanumDrive()
+								.setHeadingPDFS(0.0, 0.0, 0.0, 0.0)
+								.setDrivingType(MecanumDrive.DrivingType.FIELD_CENTRIC);
 
-	public void init(HardwareMap hwMap) {
+
+	public RobotHardware init(HardwareMap hwMap)
+	{
+		subsystems.add(drivetrain);
+
 		controlHub = hwMap.get(LynxModule.class, "Control Hub");
 		expansionHub = hwMap.get(LynxModule.class, "Expansion Hub");
 
 		controlHub.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
 		expansionHub.setBulkCachingMode(LynxModule.BulkCachingMode.MANUAL);
+
+		imu = hwMap.get(IMU.class, "imu");
+
+		IMU.Parameters parameters = new IMU.Parameters(new RevHubOrientationOnRobot(
+				RevHubOrientationOnRobot.LogoFacingDirection.UP,
+				RevHubOrientationOnRobot.UsbFacingDirection.FORWARD));
+
+		imu.initialize(parameters);
+
+		frontLeft.init(hwMap);
+		rearLeft.init(hwMap);
+		rearRight.init(hwMap);
+		frontRight.init(hwMap);
+
+		return this;
 	}
 
-	/* public int intSupplier(Sensors.UsedSensors sensor)
+	public RobotHardware setGamepads(BetterGamepad gamepad1, BetterGamepad gamepad2)
 	{
-		Object position = encoderValues.getOrDefault(sensor, 0);
-		if (position instanceof Integer) {
-			return (Integer)position;
-		} else if (position instanceof Double) {
-			return ((Double)position).intValue();
-		} else {
-			throw new ClassCastException();
-		}
+		this.gamepad1 = gamepad1;
+		this.gamepad2 = gamepad2;
+		return this;
 	}
 
-	public double doubleSupplier(Sensors.UsedSensors sensor)
-	{
-		Object position = encoderValues.getOrDefault(sensor, 0.0);
-		if (position instanceof Integer) {
-			return ((Integer)position).doubleValue();
-		} else if (position instanceof Double) {
-			return (Double)position;
-		} else {
-			throw new ClassCastException();
-		}
-	} */
+	public void read() {
+		for (Subsystem subsystem : subsystems)
+			subsystem.read();
+	}
 
 	public void clearCache()
 	{

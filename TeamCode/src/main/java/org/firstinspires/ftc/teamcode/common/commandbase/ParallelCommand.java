@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ParallelCommand implements Command
 {
-	private List<Command> commands;
+	private ArrayList<Command> commands;
 
 	public ParallelCommand (List<Command> commands)
 	{
@@ -19,21 +19,17 @@ public class ParallelCommand implements Command
 	}
 
 	@Override
-	public void run()
+	public boolean run()
 	{
 		if (commands.isEmpty())
-			return;
+			return true;
 
 		for (Command command : commands) {
 			command.run();
-			if (command.isFinished())
+			if (command.run())
 				commands.remove(command);
 		}
-	}
 
-	@Override
-	public boolean isFinished()
-	{
-		return commands.isEmpty();
+		return false;
 	}
 }

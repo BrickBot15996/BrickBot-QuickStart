@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SequentialCommand implements Command
 {
-	private List<Command> commands;
+	private ArrayList<Command> commands;
 
 	public SequentialCommand(List<Command> commands)
 	{
@@ -19,21 +19,15 @@ public class SequentialCommand implements Command
 	}
 
 	@Override
-	public void run()
+	public boolean run()
 	{
 		if (commands.isEmpty())
-			return;
+			return true;
 
-		commands.get(0).run();
-		if (commands.get(0).isFinished()) {
+		if (commands.get(0).run()) {
 			commands.remove(0);
 			run();
 		}
-	}
-
-	@Override
-	public boolean isFinished()
-	{
-		return commands.isEmpty();
+		return false;
 	}
 }

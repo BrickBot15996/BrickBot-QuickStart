@@ -1,16 +1,30 @@
 package org.firstinspires.ftc.teamcode.common.commandbase;
 
+import org.firstinspires.ftc.teamcode.common.hardware.subsystems.Subsystem;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CommandScheduler
 {
 	private static CommandScheduler scheduler;
-	private List<Command> commands;
+	private static ArrayList<Subsystem> subsystems;
+	private ArrayList<Command> commands;
 
 	private CommandScheduler()
 	{
 		this.commands = new ArrayList<>();
+	}
+
+	public void addSubsystems(List<Subsystem> subsystems)
+	{
+		CommandScheduler.subsystems = new ArrayList<>(subsystems);
+	}
+
+	public void addSubsystems(Subsystem... subsystem)
+	{
+		addSubsystems(Arrays.asList(subsystem));
 	}
 
 	public static CommandScheduler getInstance()
@@ -20,8 +34,6 @@ public class CommandScheduler
 		}
 		return scheduler;
 	}
-
-	//TODO ADD SUBSYSTEM PERIODIC
 
 	public void reset()
 	{
@@ -41,12 +53,15 @@ public class CommandScheduler
 
 	public void run()
 	{
+		if (!subsystems.isEmpty())
+			for(Subsystem subsystem : subsystems)
+				subsystem.periodic();
+
 		if (commands.isEmpty())
 			return;
 
 		for (Command command : commands) {
-			command.run();
-			if (command.isFinished())
+			if (command.run())
 				commands.remove(command);
 		}
 	}

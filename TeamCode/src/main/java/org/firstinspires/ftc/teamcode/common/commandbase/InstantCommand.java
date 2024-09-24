@@ -10,14 +10,9 @@ public class InstantCommand implements Command
 	}
 
 	@Override
-	public void run()
+	public boolean run()
 	{
 		function.run();
-	}
-
-	@Override
-	public boolean isFinished()
-	{
 		return true;
 	}
 }

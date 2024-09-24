@@ -11,17 +11,20 @@ public class TeleOp extends LinearOpMode
     RobotHardware robot = RobotHardware.getInstance();
     CommandScheduler scheduler = CommandScheduler.getInstance();
 
-    BetterGamepad gamepad = new BetterGamepad(gamepad1);
+    BetterGamepad gamepad_1 = new BetterGamepad(gamepad1);
+    BetterGamepad gamepad_2 = new BetterGamepad(gamepad2);
 
     @Override
     public void runOpMode()
     {
         robot.init(hardwareMap);
+        robot.setGamepads(gamepad_1, gamepad_2);
 
         waitForStart();
 
         while (opModeIsActive() && !isStopRequested()) {
-
+            robot.read();
+            robot.clearCache();
         }
     }
 }
