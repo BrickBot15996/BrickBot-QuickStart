@@ -22,7 +22,6 @@ public class BetterMotor implements DcMotor
 	public BetterMotor(String motorName)
 	{
 		this.motorName = motorName;
-		motor.setPower(0.0);
 	}
 
 	public void init(HardwareMap hardwareMap)

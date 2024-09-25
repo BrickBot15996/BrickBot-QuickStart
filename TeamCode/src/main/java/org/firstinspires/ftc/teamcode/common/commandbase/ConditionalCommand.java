@@ -8,6 +8,7 @@ public class ConditionalCommand implements Command
     public ConditionalCommand (Function function) {
         this.function = function;
     }
+
     @Override
     public boolean run() {
         return function.run();

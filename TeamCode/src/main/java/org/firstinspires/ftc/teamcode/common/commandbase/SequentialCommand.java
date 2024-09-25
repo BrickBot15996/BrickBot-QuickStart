@@ -24,10 +24,9 @@ public class SequentialCommand implements Command
 		if (commands.isEmpty())
 			return true;
 
-		if (commands.get(0).run()) {
+		if (commands.get(0).run())
 			commands.remove(0);
-			run();
-		}
+
 		return false;
 	}
 }

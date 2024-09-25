@@ -19,7 +19,6 @@ public class BetterCRServo implements CRServo
 	public BetterCRServo(String crServoName)
 	{
 		this.crServoName = crServoName;
-		crservo.setPower(0.0);
 	}
 
 	public void init(HardwareMap hardwareMap)
@@ -30,7 +29,6 @@ public class BetterCRServo implements CRServo
 	public void setWriteDelta (double newWriteDelta)
 	{
 		writeDelta = newWriteDelta;
-		crservo.setPower(0.0);
 	}
 
 	@Override

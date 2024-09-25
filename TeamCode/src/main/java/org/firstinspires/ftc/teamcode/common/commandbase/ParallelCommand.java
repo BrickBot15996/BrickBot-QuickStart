@@ -24,11 +24,9 @@ public class ParallelCommand implements Command
 		if (commands.isEmpty())
 			return true;
 
-		for (Command command : commands) {
-			command.run();
+		for (Command command : commands)
 			if (command.run())
 				commands.remove(command);
-		}
 
 		return false;
 	}

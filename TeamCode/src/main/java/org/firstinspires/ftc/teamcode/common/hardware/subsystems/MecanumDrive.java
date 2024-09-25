@@ -107,7 +107,7 @@ public class MecanumDrive implements Subsystem
     @Override
     public void write()
     {
-        double voltageCorrection = 12.0 / robot.voltage;
+        /*double voltageCorrection = 12.0 / robot.voltage;
         double denominator = Math.max((Math.abs(y) + Math.abs(x) + Math.abs(turn)) * voltageCorrection, 1.0);
         double frontLeftPower = (y + x + turn) * voltageCorrection / denominator;
         double rearLeftPower = (y - x + turn) * voltageCorrection / denominator;
@@ -117,7 +117,7 @@ public class MecanumDrive implements Subsystem
         robot.frontLeft.setPower(frontLeftPower * brake);
         robot.rearLeft.setPower(rearLeftPower * brake);
         robot.rearRight.setPower(rearRightPower * brake);
-        robot.frontRight.setPower(frontRightPower * brake);
+        robot.frontRight.setPower(frontRightPower * brake);*/
     }
 
 }

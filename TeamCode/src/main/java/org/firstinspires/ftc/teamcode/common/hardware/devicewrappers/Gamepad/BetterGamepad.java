@@ -16,9 +16,9 @@ public class BetterGamepad
     {
         this.gamepad = gamepad;
 
-        digitalButtons.put(DigitalBindings.touchpad_finger_1,  new DigitalButton());
-        digitalButtons.put(DigitalBindings.touchpad_finger_2,  new DigitalButton());
-        digitalButtons.put(DigitalBindings.touchpad,           new DigitalButton());
+        //digitalButtons.put(DigitalBindings.touchpad_finger_1,  new DigitalButton());
+        //digitalButtons.put(DigitalBindings.touchpad_finger_2,  new DigitalButton());
+        //digitalButtons.put(DigitalBindings.touchpad,           new DigitalButton());
         digitalButtons.put(DigitalBindings.left_stick_button,  new DigitalButton());
         digitalButtons.put(DigitalBindings.right_stick_button, new DigitalButton());
         digitalButtons.put(DigitalBindings.dpad_up,            new DigitalButton());
@@ -51,9 +51,9 @@ public class BetterGamepad
 
     public void update()
     {
-        digitalButtons.get(DigitalBindings.touchpad_finger_1)  .set(gamepad.touchpad_finger_1);
-        digitalButtons.get(DigitalBindings.touchpad_finger_2)  .set(gamepad.touchpad_finger_2);
-        digitalButtons.get(DigitalBindings.touchpad)           .set(gamepad.touchpad);
+        //digitalButtons.get(DigitalBindings.touchpad_finger_1)  .set(gamepad.touchpad_finger_1);
+        //digitalButtons.get(DigitalBindings.touchpad_finger_2)  .set(gamepad.touchpad_finger_2);
+        //digitalButtons.get(DigitalBindings.touchpad)           .set(gamepad.touchpad);
         digitalButtons.get(DigitalBindings.left_stick_button)  .set(gamepad.left_stick_button);
         digitalButtons.get(DigitalBindings.right_stick_button) .set(gamepad.right_stick_button);
         digitalButtons.get(DigitalBindings.dpad_up)            .set(gamepad.dpad_up);

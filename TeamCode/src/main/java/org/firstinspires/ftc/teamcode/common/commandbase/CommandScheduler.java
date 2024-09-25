@@ -29,9 +29,8 @@ public class CommandScheduler
 
 	public static CommandScheduler getInstance()
 	{
-		if (scheduler == null) {
+		if (scheduler == null)
 			scheduler = new CommandScheduler();
-		}
 		return scheduler;
 	}
 
@@ -53,7 +52,7 @@ public class CommandScheduler
 
 	public void run()
 	{
-		if (!subsystems.isEmpty())
+		if (subsystems != null && !subsystems.isEmpty())
 			for(Subsystem subsystem : subsystems)
 				subsystem.periodic();
 
@@ -63,6 +62,8 @@ public class CommandScheduler
 		for (Command command : commands) {
 			if (command.run())
 				commands.remove(command);
+			if (commands.isEmpty())
+				break;
 		}
 	}
 }
