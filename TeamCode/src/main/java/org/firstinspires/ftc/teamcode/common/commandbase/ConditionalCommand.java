@@ -1,5 +1,10 @@
 package org.firstinspires.ftc.teamcode.common.commandbase;
 
+/**
+ * Usage:
+ * If using a boolean returning function:
+ * new ConditionalCommand(() -> {return class.method();});
+ */
 public class ConditionalCommand implements Command
 {
 

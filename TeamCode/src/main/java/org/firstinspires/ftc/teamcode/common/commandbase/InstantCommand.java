@@ -1,5 +1,9 @@
 package org.firstinspires.ftc.teamcode.common.commandbase;
 
+/**
+ * Usage:
+ * new InstantCommand(() -> {class.method();});
+ */
 public class InstantCommand implements Command
 {
 	private Function function;

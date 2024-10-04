@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Usage:
+ * new ParallelCommand(new CommandType(() -> {insert usual command contents},
+ * 						new CommandType(() -> {insert usual command contents},
+ * 						...);
+ * CommandType should be replaced by whatever type of command you want (ConditionalCommand, InstantCommand, ParallelCommand or SequentialCommand);
+ */
 public class ParallelCommand implements Command
 {
 	private ArrayList<Command> commands;
