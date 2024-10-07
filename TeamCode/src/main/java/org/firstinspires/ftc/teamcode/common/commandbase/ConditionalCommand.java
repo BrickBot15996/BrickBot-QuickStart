@@ -8,9 +8,9 @@ package org.firstinspires.ftc.teamcode.common.commandbase;
 public class ConditionalCommand implements Command
 {
 
-    private Function function;
+    private BooleanFunction function;
 
-    public ConditionalCommand (Function function) {
+    public ConditionalCommand (BooleanFunction function) {
         this.function = function;
     }
 
