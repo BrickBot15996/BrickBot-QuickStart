@@ -43,6 +43,8 @@ public class CommandScheduler
 	public void schedule(Command command)
 	{
 		commands.add(command);
+		if (command instanceof TimedCommand)
+			((TimedCommand) command).startTimer();
 	}
 
 	public void remove(Command command)

@@ -7,7 +7,6 @@ package org.firstinspires.ftc.teamcode.common.commandbase;
  */
 public class ConditionalCommand implements Command
 {
-
     private BooleanFunction function;
 
     public ConditionalCommand (BooleanFunction function) {
