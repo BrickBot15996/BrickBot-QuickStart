@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.common.commandbase.CommandScheduler;
 import org.firstinspires.ftc.teamcode.common.commandbase.InstantCommand;
 import org.firstinspires.ftc.teamcode.common.commandbase.ParallelCommand;
+import org.firstinspires.ftc.teamcode.common.commandbase.TimedCommand;
 import org.firstinspires.ftc.teamcode.common.hardware.RobotHardware;
 import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.AnalogBindings;
 import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.BetterGamepad;
@@ -30,7 +31,7 @@ public class TeleOp extends LinearOpMode
             //RobotHardware.getInstance().read();
 
             scheduler.run();
-            //RobotHardware.getInstance().write();
+            scheduler.schedule(new TimedCommand(() -> {System.out.println("skibidi");}, 4.0));
             //RobotHardware.getInstance().clearCache();
         }
     }

@@ -6,17 +6,17 @@ package org.firstinspires.ftc.teamcode.common.commandbase;
  */
 public class InstantCommand implements Command
 {
-	private Function function;
+	private VoidFunction voidFunction;
 
-	public InstantCommand (Function function)
+	public InstantCommand (VoidFunction voidFunction)
 	{
-		this.function = function;
+		this.voidFunction = voidFunction;
 	}
 
 	@Override
 	public boolean run()
 	{
-		function.run();
+		voidFunction.run();
 		return true;
 	}
 }

@@ -31,7 +31,7 @@ Robot:	    This is a Sample OpMode that assumes a simple two-motor (differential
             It may be used to provide a common baseline driving OpMode, or
             to demonstrate how a particular sensor or concept can be used to navigate.
 
-Concept:	This is a sample OpMode that illustrates performing a specific function or concept.
+Concept:	This is a sample OpMode that illustrates performing a specific voidFunction or concept.
             These may be complex, but their operation should be explained clearly in the comments,
             or the comments should reference an external doc, guide or tutorial.
             Each OpMode should try to only demonstrate a single concept so they are easy to

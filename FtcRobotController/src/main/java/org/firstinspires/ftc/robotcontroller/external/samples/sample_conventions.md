@@ -23,7 +23,7 @@ Robot:	    This is a Sample OpMode that assumes a simple two-motor (differential
             It may be used to provide a common baseline driving OpMode, or
             to demonstrate how a particular sensor or concept can be used to navigate.
 
-Concept:	This is a sample OpMode that illustrates performing a specific function or concept.
+Concept:	This is a sample OpMode that illustrates performing a specific voidFunction or concept.
             These may be complex, but their operation should be explained clearly in the comments,
             or the comments should reference an external doc, guide or tutorial.
             Each OpMode should try to only demonstrate a single concept so they are easy to
@@ -46,7 +46,7 @@ Code is formatted as per the Google Style Guide:
 
 https://google.github.io/styleguide/javaguide.html
 
-With “Sensor” and “Hardware” samples, the code should demonstrate the essential function,
+With “Sensor” and “Hardware” samples, the code should demonstrate the essential voidFunction,
 and not be embellished with too much additional “clever” code.  If a sensor has special
 addressing needs, or has a variety of modes or outputs, these should be demonstrated as
 simply as possible.

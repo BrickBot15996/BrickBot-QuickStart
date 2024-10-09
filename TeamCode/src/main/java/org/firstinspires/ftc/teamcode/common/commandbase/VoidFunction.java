@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.common.commandbase;
 
 @FunctionalInterface
-public interface Function {
+public interface VoidFunction {
     void run();
 }

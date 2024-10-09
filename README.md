@@ -78,7 +78,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 
 ### Bug Fixes
 * Fixes https://github.com/FIRST-Tech-Challenge/FtcRobotController/issues/942 where visionPortal.close() can cause an IndexOutOfBoundsError.
-* Fixes a bug in the blocks editor where collapsed function blocks show a warning "Collapsed blocks contain warnings." when the Blocks OpMode is reopened.
+* Fixes a bug in the blocks editor where collapsed voidFunction blocks show a warning "Collapsed blocks contain warnings." when the Blocks OpMode is reopened.
 * Fixes a bug where the blocks editor wouldn't warn you that you have unsaved changes when you try to leave. This bug was introduced due to a behavior change in Chrome 119.
 * [Issue #764](https://github.com/FIRST-Tech-Challenge/FtcRobotController/issues/764) - Get gain control returns a null pointer for a switchable camera
 * Fixes a bug where the correct deadzone for certain gamepads was not applied when Advanced Gamepad Features was enabled
@@ -95,7 +95,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * In OnBotJava, code folding support was added to expand and collapse code sections
 * In OnBotJava, the copyright header is now automatically collapsed loading new files
 * For all Blocks OpMode samples, intro comments have been moved to the RunOpMode comment balloon.
-* The Clean up Blocks command in the Blocks editor now positions function Blocks so their comment balloons don't overlap other function Blocks.
+* The Clean up Blocks command in the Blocks editor now positions voidFunction Blocks so their comment balloons don't overlap other voidFunction Blocks.
 * Added Blocks OpMode sample SensorTouch.
 * Added Java OpMode sample SensorDigitalTouch.
 * Several improvements to VisionPortal
@@ -150,7 +150,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
     * Added a new sample Blocks OpMode called UtilityCameraFrameCapture.
 * The RobotDriveByGyro sample has been updated to use the new universal IMU interface.  It now supports both IMU types.
 * Removed some error-prone ElapsedTime Blocks from the Blocks editor's toolbox. This is not a
-  breaking change: old Blocks OpModes that use these Blocks will still function, both in the
+  breaking change: old Blocks OpModes that use these Blocks will still voidFunction, both in the
   Blocks editor and at runtime.
 * Standardizes on the form "OpMode" for the term OpMode.
     * The preferred way to refer to OpModes that specifically extend `LinearOpMode` (including Blocks OpModes) is "linear OpMode".
@@ -685,7 +685,7 @@ Version 5.5 requires Android Studio 4.0 or later.
         * the new default theme is `light` and will be used when you first update to this version
     * OnBotJava now has a tabbed editor
     * Read-only offline mode
-* Improves function of "exit" menu item on Robot Controller and Driver Station
+* Improves voidFunction of "exit" menu item on Robot Controller and Driver Station
     * Now guaranteed to be fully stopped and unloaded from memory
 * Shows a warning message if a LinearOpMode exists prematurely due to failure to monitor for the start condition
 * Improves error message shown when the Driver Station and Robot Controller are incompatible with each other
@@ -1055,7 +1055,7 @@ Changes with verion 3.3 include:
     - User can now disable/enable Block OpModes.
     - Fix to prevent occasional Blocks deadlock.
  * OnBot Java
-    - Significant improvements with autocomplete function for OnBot Java editor.
+    - Significant improvements with autocomplete voidFunction for OnBot Java editor.
     - Sample OpModes can be selected as a template when creating new OpMode.
     - Fixes and changes to complete hardware setup feature.
     - Updated (and more useful) onBot welcome message.
@@ -1093,7 +1093,7 @@ Changes with version 3.2 include:
 * Includes many minor enhancements and fixes (too numerous to list).
 
 Known issues:
-* Auto complete function is incomplete and does not support the following (for now):
+* Auto complete voidFunction is incomplete and does not support the following (for now):
      - Access via *this* keyword
      - Access via *super* keyword
      - Members of the super cloass, not overridden by the class
@@ -1124,7 +1124,7 @@ In addition to the release changes listed below (see section labeled "Version 3.
 
 1. Version 3.00 software uses a new version of the FTC Robocol (robot protocol).  If you upgrade to v3.0 on the Robot Controller and/or Android Studio side, you must also upgrade the Driver Station software to match the new Robocol.
 2. Version 3.00 software removes the setMaxSpeed and getMaxSpeed methods from the DcMotor class.  If you have an OpMode that formerly used these methods, you will need to remove the references/calls to these methods.  Instead, v3.0 provides the max speed information through the use of motor profiles that are selected by the user during robot configuration.
-3. Version 3.00 software currently does not have a mechanism to disable extra i2c sensors.  We hope to re-introduce this function with a release in the near future.
+3. Version 3.00 software currently does not have a mechanism to disable extra i2c sensors.  We hope to re-introduce this voidFunction with a release in the near future.
 
 **************************************************************************************
 
@@ -1256,7 +1256,7 @@ Changes include:
   * Incorporated suggested changes from public pull 216 (“Replace .. paths”).
   * Remove Servo Glitches when robot stopped.
   * if user hits “Cancels” when editing a configuration file, clears the unsaved changes and reverts to original unmodified configuration.
-  * Added log info to help diagnose why the Robot Controller app was terminated (for example, by watch dog function).
+  * Added log info to help diagnose why the Robot Controller app was terminated (for example, by watch dog voidFunction).
   * Added ability to transfer log from the controller.
   * Fixed inconsistency for AngularVelocity
   * Limit unbounded growth of data for telemetry.  If user does not call telemetry.update() for LinearOpMode in a timely manner, data added for telemetry might get lost if size limit is exceeded.
@@ -1339,13 +1339,13 @@ Changes include:
  * Android Studio project supports Android Studio 2.1.x and compile SDK Version 23 (Marshmallow).
  * Vuforia Computer Vision SDK integrated into FTC SDK.  Users can use sample vision targets to get localization information on a standard FTC field.
  * Project structure has been reorganized so that there is now a TeamCode package that users can use to place their local/custom OpModes into this package.
- * Inspection function has been integrated into the FTC Robot Controller and Driver Station Apps (Thanks Team HazMat… 9277 & 10650!).
+ * Inspection voidFunction has been integrated into the FTC Robot Controller and Driver Station Apps (Thanks Team HazMat… 9277 & 10650!).
  * Audio cues have been incorporated into FTC SDK.
  * Swap mechanism added to FTC Robot Controller configuration activity.  For example, if you have two motor controllers on a robot, and you misidentified them in your configuration file, you can use the Swap button to swap the devices within the configuration file (so you do not have to manually re-enter in the configuration info for the two devices).
  * Fix mechanism added to all user to replace an electronic module easily.  For example, suppose a servo controller dies on your robot. You replace the broken module with a new module, which has a different serial number from the original servo controller.  You can use the Fix button to automatically reconfigure your configuration file to use the serial number of the new module.
  * Improvements made to fix resiliency and responsiveness of the system.
  * For LinearOpMode the user now must for a telemetry.update() to update the telemetry data on the driver station.  This update() mechanism ensures that the driver station gets the updated data properly and at the same time.
- * The Auto Configure function of the Robot Controller is now template based.  If there is a commonly used robot configuration, a template can be created so that the Auto Configure mechanism can be used to quickly configure a robot of this type.
+ * The Auto Configure voidFunction of the Robot Controller is now template based.  If there is a commonly used robot configuration, a template can be created so that the Auto Configure mechanism can be used to quickly configure a robot of this type.
  * The logic to detect a runaway OpMode (both in the LinearOpMode and OpMode types) and to abort the run, then auto recover has been improved/implemented.
  * Fix has been incorporated so that Logitech F310 gamepad mappings will be correct for Marshmallow users.
 
@@ -1355,7 +1355,7 @@ Changes include:
 
 ## Release 16.03.30
 
- * For the MIT App Inventor, the design blocks have new icons that better represent the function of each design component.
+ * For the MIT App Inventor, the design blocks have new icons that better represent the voidFunction of each design component.
  * Some changes were made to the shutdown logic to ensure the robust shutdown of some of our USB services.
  * A change was made to LinearOpMode so as to allow a given instance to be executed more than once, which is required for the App Inventor.
  * Javadoc improved/updated.

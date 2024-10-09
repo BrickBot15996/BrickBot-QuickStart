@@ -7,25 +7,25 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 /**
  * Usage:
  * Allows both boolean and void functions:
- * new ConditionalCommand(() -> {return class.method();}, timeoutSeconds);
+ * new TimedCommand(() -> {return class.method();}, timeoutSeconds);
  */
 public class TimedCommand implements Command
 {
-    ElapsedTime timer = new ElapsedTime();
-    double timeout;
+    private ElapsedTime timer = new ElapsedTime();
+    private double timeoutSeconds;
     private BooleanFunction booleanFunction;
-    private Function function;
+    private VoidFunction voidFunction;
 
-    public TimedCommand (BooleanFunction booleanFunction, double timeout)
+    public TimedCommand (BooleanFunction booleanFunction, double timeoutSeconds)
     {
         this.booleanFunction = booleanFunction;
-        this.timeout = timeout;
+        this.timeoutSeconds = timeoutSeconds;
     }
 
-    public TimedCommand(Function function, double timeout)
+    public TimedCommand(VoidFunction voidFunction, double timeoutSeconds)
     {
-        this.function = function;
-        this.timeout = timeout;
+        this.voidFunction = voidFunction;
+        this.timeoutSeconds = timeoutSeconds;
     }
 
     @Override
@@ -33,9 +33,9 @@ public class TimedCommand implements Command
         if (booleanFunction != NULL)
             booleanFunction.run();
         else
-            function.run();
+            voidFunction.run();
 
-        if (timer.seconds() > timeout)
+        if (timer.seconds() > timeoutSeconds)
             return true;
         else
             return false;
