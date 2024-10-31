@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.teamcode.common.controltheory.PDFSController;
 import org.firstinspires.ftc.teamcode.common.hardware.RobotHardware;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.AnalogBindings;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.DigitalBindings;
+import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.gamepad.AnalogBindings;
+import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.gamepad.DigitalBindings;
 
 public class MecanumDrive implements Subsystem
 {

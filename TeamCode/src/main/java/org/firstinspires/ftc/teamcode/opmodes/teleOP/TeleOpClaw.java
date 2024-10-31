@@ -5,11 +5,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.common.commandbase.CommandScheduler;
 import org.firstinspires.ftc.teamcode.common.commandbase.InstantCommand;
-import org.firstinspires.ftc.teamcode.common.commandbase.SequentialCommand;
-import org.firstinspires.ftc.teamcode.common.hardware.RobotHardware;
 import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.BetterServo;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.BetterGamepad;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.DigitalBindings;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "ClawTest")
 public class TeleOpClaw extends LinearOpMode

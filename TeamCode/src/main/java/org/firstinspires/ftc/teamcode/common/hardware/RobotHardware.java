@@ -7,10 +7,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.navigation.VoltageUnit;
-import org.firstinspires.ftc.robotcore.internal.ftdi.BaudRate;
 import org.firstinspires.ftc.teamcode.common.commandbase.CommandScheduler;
 import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.BetterMotor;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.BetterGamepad;
+import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.gamepad.BetterGamepad;
 import org.firstinspires.ftc.teamcode.common.hardware.subsystems.MecanumDrive;
 import org.firstinspires.ftc.teamcode.common.hardware.subsystems.Subsystem;
 

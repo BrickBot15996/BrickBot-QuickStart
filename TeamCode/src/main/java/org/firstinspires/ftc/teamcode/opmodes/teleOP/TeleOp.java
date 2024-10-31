@@ -3,13 +3,9 @@ package org.firstinspires.ftc.teamcode.opmodes.teleOP;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.common.commandbase.CommandScheduler;
-import org.firstinspires.ftc.teamcode.common.commandbase.InstantCommand;
-import org.firstinspires.ftc.teamcode.common.commandbase.ParallelCommand;
 import org.firstinspires.ftc.teamcode.common.commandbase.TimedCommand;
 import org.firstinspires.ftc.teamcode.common.hardware.RobotHardware;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.AnalogBindings;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.BetterGamepad;
-import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad.DigitalBindings;
+import org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.gamepad.BetterGamepad;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "Mecanum Test")
 public class TeleOp extends LinearOpMode

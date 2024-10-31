@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.Gamepad;
+package org.firstinspires.ftc.teamcode.common.hardware.devicewrappers.gamepad;
 
 public enum DigitalBindings
 {
