@@ -24,11 +24,10 @@ public class TeleOp extends LinearOpMode
         waitForStart();
 
         while (opModeIsActive() && !isStopRequested()) {
-            //RobotHardware.getInstance().read();
+            RobotHardware.getInstance().read();
 
             scheduler.run();
-            scheduler.schedule(new TimedCommand(() -> {System.out.println("skibidi");}, 4.0));
-            //RobotHardware.getInstance().clearCache();
+            RobotHardware.getInstance().clearCache();
         }
     }
 }

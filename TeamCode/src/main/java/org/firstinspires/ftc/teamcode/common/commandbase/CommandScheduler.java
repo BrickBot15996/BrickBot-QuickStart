@@ -14,10 +14,12 @@ public class CommandScheduler
 	private static CommandScheduler scheduler;
 	private static ArrayList<Subsystem> subsystems;
 	private ArrayList<Command> commands;
+	private ArrayList<Command> removedCommands;
 
 	private CommandScheduler()
 	{
 		this.commands = new ArrayList<>();
+		this.removedCommands = new ArrayList<>();
 	}
 
 	/**
@@ -95,9 +97,11 @@ public class CommandScheduler
 
 		for (Command command : commands) {
 			if (command.run())
-				commands.remove(command);
-			if (commands.isEmpty())
-				break;
+				removedCommands.add(command);
 		}
+
+		for (Command command : removedCommands)
+			commands.remove(command);
+		removedCommands.clear();
 	}
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public class ParallelCommand implements Command
 {
 	private ArrayList<Command> commands;
+	private ArrayList<Command> removedCommands;
 
 	public ParallelCommand (List<Command> commands)
 	{
@@ -33,7 +34,11 @@ public class ParallelCommand implements Command
 
 		for (Command command : commands)
 			if (command.run())
-				commands.remove(command);
+				removedCommands.add(command);
+
+		for (Command command : removedCommands)
+			commands.remove(command);
+		removedCommands.clear();
 
 		return false;
 	}
